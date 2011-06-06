@@ -1,15 +1,19 @@
-%Stores data in the following format
-%2004 Violent Total, 2005 Violent Total, Murder, Rape, Robbery, Assault,
-%2004 Property Total, 2005 Property Total, Burglary, Larceny, Car theft
+% This file is the top-level script for the data analysis performed
+% It reads the given CSV file and creates all of the necessary data
+% structures for use with any of the smaller functions.
+
+% Stores data in the following format
+% 2004 Violent Total, 2005 Violent Total, Murder, Rape, Robbery, Assault,
+% 2004 Property Total, 2005 Property Total, Burglary, Larceny, Car theft
 Text = importdata('CrimeRatesModified.csv');
 states = Text.textdata;
 Data = Text.data;
 
-%CrimeTotals2004 will store Violent, Property total pairs
+% CrimeTotals2004 will store Violent, Property total pairs
 CrimeTotals2004(:, 1) = Data(:, 1);
 CrimeTotals2004(:, 2) = Data(:, 7);
 
-%Same for CrimeTotals2005
+% Same for CrimeTotals2005
 CrimeTotals2005(:, 1) = Data(:, 2);
 CrimeTotals2005(:, 2) = Data(:, 8);
 
@@ -76,35 +80,35 @@ end
 UniversityPropertyData = zeros(8,3);
 UniversityViolentData = zeros(8,4);
 
-%CA
+% CA
 UniversityPropertyData(1,:) = PropertyCrimeRates2005(6,:);
 UniversityViolentData(1,:) = ViolentCrimeRates2005(6,:);
 
-%MAData = zeros(2,4);
+% MA
 UniversityPropertyData(2,:) = PropertyCrimeRates2005(23,:);
 UniversityViolentData(2,:) = ViolentCrimeRates2005(23,:);
 
-%NJData = zeros(2,4);
+% NJ
 UniversityPropertyData(3,:) = PropertyCrimeRates2005(32,:);
 UniversityViolentData(3,:) = ViolentCrimeRates2005(32,:);
 
-%CTData = zeros(2,4);
+% CT
 UniversityPropertyData(4,:) = PropertyCrimeRates2005(8,:);
 UniversityViolentData(4,:) = ViolentCrimeRates2005(8,:);
 
-%NYData = zeros(2,4);
+% NY
 UniversityPropertyData(5,:) = PropertyCrimeRates2005(34,:);
 UniversityViolentData(5,:) = ViolentCrimeRates2005(34,:);
 
-%PAData = zeros(2,4);
+% PA
 UniversityPropertyData(6,:) = PropertyCrimeRates2005(40,:);
 UniversityViolentData(6,:) = ViolentCrimeRates2005(40,:);
 
-%NHData = zeros(2,4);
+% NH
 UniversityPropertyData(7,:) = PropertyCrimeRates2005(31,:);
 UniversityViolentData(7,:) = ViolentCrimeRates2005(31,:);
 
-%NCData = zeros(2,4);
+% NC
 UniversityPropertyData(8,:) = PropertyCrimeRates2005(35,:);
 UniversityViolentData(8,:) = ViolentCrimeRates2005(35,:);
 
@@ -170,6 +174,7 @@ Total2005Data(:,7) = ViolentCrimeRates2005(:,4);
 
 normalHist = hist(sum(rand(1000,10).^2,2))';
 
+% create plots
 figure
 hold on
 plot(CrimeTotals2004(:,1),'r');
@@ -186,7 +191,7 @@ legend('2004', '2005');
 title('Property Crime Totals, 2004 & 2005');
 hold off
 
-
+% clear variables
 clear index
 clear i
 clear value

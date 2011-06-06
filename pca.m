@@ -1,3 +1,10 @@
+% This function expects the following:
+%   data: the matrix to be analyzed
+%
+% The function will then perform PCA on the data and create certain graphs
+% Note: it is currently restricted to matrices of 7 columns or more,
+% because of the specific analysis performed in the paper.
+
 function f = pca(data)
     f = 0;
     C = cov(data);

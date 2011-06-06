@@ -1,3 +1,7 @@
+% Arguments:
+%   data: vector or matrix to be plotted
+%   t: character array, title of the chart
+
 function f = plothist(data, t)
     hist(data);
     title(strcat(t, ': ', ...
