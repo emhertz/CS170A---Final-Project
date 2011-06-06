@@ -1,6 +1,9 @@
+% This function will calculate the chi-square value for the two given
+% histograms.
+%
+% Source: CS170A Course Notes - D.S. Parker, 2011
+
 function p = chisquare(observed, expected)
-    %normal histogram was generated with following code:
-    %normalHist = hist(sum(rand(3000,52).^2,2),52);
     Nvals = sum(observed);
     Nbins = length(observed);
     cs = sum((observed-expected).^2 ./ expected)
